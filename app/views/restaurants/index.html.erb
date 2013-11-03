@@ -1,10 +1,11 @@
-<h1>Index</h1>
+<h1>Restaurant List</h1>
 <table>
   <tr>
     <th>Name</th>
     <th>Description</th>
     <th>Address</th>
     <th>Phone Number</th>
+    <th></th>
     <th></th>
   </tr>
 
@@ -16,6 +17,9 @@
       <td><%= restaurant.address %></td>
       <td><%= restaurant.phone_number %></td>
       <td><%= link_to "Show Restaurant", restaurant_path(restaurant) %></td>
+      <td><%= link_to "Edit Restaurant", edit_restaurant_path(restaurant) %></td>
+      <td><%= link_to 'Destroy', restaurants_path(restaurant), method: :delete, data:
+       { confirm:"Are you sure?" }  %></td>
     <% end %>
   </tr>
 

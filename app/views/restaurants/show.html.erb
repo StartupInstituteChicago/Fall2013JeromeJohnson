@@ -2,18 +2,19 @@
 
 <table>
   <tr>
-    <td><strong>Name:</strong> <%= @restaurants.name %></td>
+    <td><strong>Name:</strong> <%= @restaurant.name %></td>
   </tr>
   <tr>
-    <td><strong>Description:</strong> <%= @restaurants.description %></td>
+    <td><strong>Description:</strong> <%= @restaurant.description %></td>
   </tr>
   <tr>
-    <td><strong>Address:</strong> <%= @restaurants.address %></td>
+    <td><strong>Address:</strong> <%= @restaurant.address %></td>
   </tr>
   <tr>
-    <td><strong>Phone Number:</strong> <%= @restaurants.phone_number %></td>
+    <td><strong>Phone Number:</strong> <%= @restaurant.phone_number %></td>
   </tr>
 </table>
 <%= link_to "Edit", edit_restaurant_path %>
-<%= link_to "Destroy", restaurant_path(@restaurants), :method => :delete, data:
+| <%= link_to "Destroy", restaurant_path(@restaurants), :method => :delete, data:
   {confirm: 'Are you sure?'} %>
+| <%= link_to "Home", restaurants_path %>
