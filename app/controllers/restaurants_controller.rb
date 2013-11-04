@@ -32,7 +32,7 @@ class RestaurantsController < ApplicationController
     @restaurant = Restaurant.find(params[:id])
 
     if @restaurant.update(params[:restaurant].permit(:name, :description,
-     :address, :phone_number))
+     :address, :phone_number, :avatar, :avatar_url))
       redirect_to @restaurant
     else
       render 'edit'
@@ -49,6 +49,7 @@ class RestaurantsController < ApplicationController
 
   private
     def post_params
-      params.require(:restaurant).permit(:name, :description, :address, :phone_number)
+      params.require(:restaurant).permit(:name, :description, :address,
+       :phone_number, :avatar, :avatar_url)
     end
 end

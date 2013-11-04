@@ -2,19 +2,30 @@
 
 <table>
   <tr>
-    <td><strong>Name:</strong> <%= @restaurant.name %></td>
+      <%= image_tag @restaurant.avatar_url.to_s %>
   </tr>
   <tr>
-    <td><strong>Description:</strong> <%= @restaurant.description %></td>
+    <td>
+      <strong>Name:</strong> <%= @restaurant.name %>
+    </td>
   </tr>
   <tr>
-    <td><strong>Address:</strong> <%= @restaurant.address %></td>
+    <td>
+      <strong>Description:</strong> <%= @restaurant.description %>
+    </td>
   </tr>
   <tr>
-    <td><strong>Phone Number:</strong> <%= @restaurant.phone_number %></td>
+    <td>
+      <strong>Address:</strong> <%= @restaurant.address %>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <strong>Phone Number:</strong> <%= @restaurant.phone_number %>
+    </td>
   </tr>
 </table>
-<%= link_to "Edit", edit_restaurant_path %>
-| <%= link_to "Destroy", restaurant_path(@restaurants), :method => :delete, data:
+<%= link_to "Edit", edit_restaurant_path, :class =>'btn btn-warning' %>
+| <%= link_to "Destroy", restaurant_path(@restaurants), :class =>'btn btn-danger', :method => :delete, data:
   {confirm: 'Are you sure?'} %>
-| <%= link_to "Home", restaurants_path %>
+| <%= link_to "Home", restaurants_path, :class =>'btn btn-primary' %>

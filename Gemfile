@@ -6,6 +6,15 @@ gem 'rails', '4.0.0'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 
+# Carrierwave gem
+gem 'carrierwave'
+
+gem "rmagick"
+
+#Dotenv loads environment variables from .env into ENV
+gem 'dotenv-rails', :groups => [:development, :test]
+
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
 

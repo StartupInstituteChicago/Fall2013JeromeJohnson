@@ -1,10 +1,12 @@
 <h1>Restaurant List</h1>
 <table class='table table-striped'>
   <tr>
+    <th>Image</th>
     <th>Name</th>
     <th>Description</th>
     <th>Address</th>
     <th>Phone Number</th>
+    <th></th>
     <th></th>
     <th></th>
   </tr>
@@ -12,17 +14,18 @@
   
     <% @restaurants.each do |restaurant| %>
     <tr>
+      <td><%= image_tag restaurant.avatar_url(:thumb) %></td>
       <td><%= restaurant.name %></td>
       <td><%= restaurant.description %></td>
       <td><%= restaurant.address %></td>
       <td><%= restaurant.phone_number %></td>
-      <td><%= link_to "Show Restaurant", restaurant_path(restaurant) %></td>
-      <td><%= link_to "Edit Restaurant", edit_restaurant_path(restaurant) %></td>
-      <td><%= link_to 'Destroy', restaurants_path(restaurant), method: :delete, data:
+      <td><%= link_to "Show Restaurant", restaurant_path(restaurant), :class =>'btn btn-success' %></td>
+      <td><%= link_to "Edit Restaurant", edit_restaurant_path(restaurant), :class =>'btn btn-warning' %></td>
+      <td><%= link_to 'Delete', restaurant, :class =>'btn btn-danger', method: :delete, data:
        { confirm:"Are you sure?" }  %></td>
     <% end %>
   </tr>
 
-  <button type="button" class="btn btn-default"><%= link_to "New Restaurant", new_restaurant_path %></button>
+  <%= link_to "New Restaurant", new_restaurant_path, :class =>'btn btn-primary' %>
 
 </table>
