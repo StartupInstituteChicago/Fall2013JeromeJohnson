@@ -1,5 +1,5 @@
 <h1>Restaurant List</h1>
-<table>
+<table class='table table-striped'>
   <tr>
     <th>Name</th>
     <th>Description</th>
@@ -23,6 +23,6 @@
     <% end %>
   </tr>
 
-  <%= link_to "New Restaurant", new_restaurant_path %>
+  <button type="button" class="btn btn-default"><%= link_to "New Restaurant", new_restaurant_path %></button>
 
 </table>
