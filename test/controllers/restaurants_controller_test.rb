@@ -7,6 +7,7 @@ class RestaurantsControllerTest < ActionController::TestCase
 
     test "Should get index page" do
       get :index
+      assert_response :success
     end
 
     test "Should get new page" do
