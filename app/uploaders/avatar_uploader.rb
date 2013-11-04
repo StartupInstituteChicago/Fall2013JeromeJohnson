@@ -28,7 +28,11 @@ class AvatarUploader < CarrierWave::Uploader::Base
   #   %w(jpg jpeg gif png)
   # end
 
-  process :resize_to_fit =>[150, 150]
+  #process :resize_to_fit =>[150, 150]
+
+  version :masthead do
+    process :resize_to_fill => [600, 500]
+  end
 
   version :thumb do
     process :resize_to_fill => [150, 150]

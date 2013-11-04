@@ -1,8 +1,8 @@
 <h1>Show</h1>
-
+<%= ENV['S3_BUCKET'] %>
 <table>
   <tr>
-      <%= image_tag @restaurant.avatar_url.to_s %>
+      <%= image_tag @restaurant.avatar_url(:thumb) %>
   </tr>
   <tr>
     <td>

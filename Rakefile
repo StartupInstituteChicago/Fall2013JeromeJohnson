@@ -4,3 +4,9 @@
 require File.expand_path('../config/application', __FILE__)
 
 ReserveMe::Application.load_tasks
+
+require 'dotenv/tasks'
+
+task :mytask => :dotenv do
+    # things that require .env
+end
