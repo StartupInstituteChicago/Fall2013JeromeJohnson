@@ -25,6 +25,11 @@
     </td>
   </tr>
 </table>
+<br>
+<%= image_tag "http://maps.googleapis.com/maps/api/staticmap?center=#{url_encode(@restaurant.address)}&markers=color:red|#{url_encode(@restaurant.address)}&zoom=14&size=200x200&sensor=false&key=AIzaSyCzFcVAF6FmVvdJomC1mzaeMLNBCoNJcGI"  %>
+<br>
+<br>
+
 <%= link_to "Edit", edit_restaurant_path, :class =>'btn btn-warning' %>
 | <%= link_to "Destroy", restaurant_path(@restaurants), :class =>'btn btn-danger', :method => :delete, data:
   {confirm: 'Are you sure?'} %>

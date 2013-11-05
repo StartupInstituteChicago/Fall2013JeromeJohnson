@@ -14,7 +14,7 @@
   
     <% @restaurants.each do |restaurant| %>
     <tr>
-      <td><%= image_tag restaurant.avatar_url(:thumb) %></td>
+      <td><%= image_tag restaurant.avatar_url(:thumb), :class => "img-rounded" %></td>
       <td><%= restaurant.name %></td>
       <td><%= restaurant.description %></td>
       <td><%= restaurant.address %></td>
