@@ -14,6 +14,9 @@ gem "rmagick"
 #Dotenv loads environment variables from .env into ENV
 gem 'dotenv-rails', :groups => [:development, :test]
 
+#Devise Authentication system
+gem 'devise'
+
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
@@ -39,6 +42,10 @@ gem 'jbuilder', '~> 1.2'
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
+end
+
+group :development, :test do
+  gem 'rspec-rails', '~> 2.0'
 end
 
 # Use ActiveModel has_secure_password
