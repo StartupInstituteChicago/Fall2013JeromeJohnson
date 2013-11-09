@@ -4,4 +4,6 @@ class Restaurant < ActiveRecord::Base
   validates :phone_number, length: { minimum: 10 }
   
   mount_uploader :avatar, AvatarUploader
+
+  belongs_to :owner
 end

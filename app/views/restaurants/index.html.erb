@@ -19,13 +19,13 @@
       <td><%= restaurant.description %></td>
       <td><%= restaurant.address %></td>
       <td><%= restaurant.phone_number %></td>
-      <td><%= link_to "Show Restaurant", restaurant_path(restaurant), :class =>'btn btn-success' %></td>
-      <td><%= link_to "Edit Restaurant", edit_restaurant_path(restaurant), :class =>'btn btn-warning' %></td>
+      <td><%= link_to "Show Restaurant", restaurant_path(restaurant), :class =>'btn btn-primary' %></td>
+      <td><%= link_to "Edit Restaurant", edit_restaurant_path(restaurant), :class =>'btn btn-default' %></td>
       <td><%= link_to 'Delete', restaurant, :class =>'btn btn-danger', method: :delete, data:
        { confirm:"Are you sure?" }  %></td>
     <% end %>
   </tr>
 
-  <%= link_to "New Restaurant", new_restaurant_path, :class =>'btn btn-primary' %>
+  <%= link_to "New Restaurant", new_restaurant_path, :class =>'btn btn-success' %>
 
 </table>

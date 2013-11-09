@@ -1,4 +1,5 @@
-<h1>Show</h1>
+
+<h4> Owned by: <%= current_owner.name %></h4>
 
 <table>
   <tr>
@@ -30,7 +31,10 @@
 <br>
 <br>
 
-<%= link_to "Edit", edit_restaurant_path, :class =>'btn btn-warning' %>
-| <%= link_to "Destroy", restaurant_path(@restaurants), :class =>'btn btn-danger', :method => :delete, data:
-  {confirm: 'Are you sure?'} %>
-| <%= link_to "Home", restaurants_path, :class =>'btn btn-primary' %>
+<% if @restaurant.owner == current_owner %>
+  <%= link_to "Edit", edit_restaurant_path %>
+
+  | <%= link_to "Destroy", restaurant_path(@restaurants), :method => :delete, data:
+    {confirm: 'Are you sure?'} %>
+<% end %>
+| <%= link_to "Back to List", restaurants_path %>

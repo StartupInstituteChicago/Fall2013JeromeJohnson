@@ -1,4 +1,5 @@
 class RestaurantsController < ApplicationController
+  before_filter :authenticate_owner!
 
   def index
     @restaurants = Restaurant.all
@@ -8,6 +9,7 @@ class RestaurantsController < ApplicationController
     @restaurant = Restaurant.find(params[:id])
     @address = @restaurant.address
     @gmaps_key = ENV['G_MAP_API_KEY']
+    @owner = current_owner
   end
 
   def new
@@ -17,6 +19,7 @@ class RestaurantsController < ApplicationController
   def create
     @restaurant = Restaurant.new(params[:restaurant].permit(:name, :description,
      :address, :phone_number))
+    @restaurant.owner = current_owner
 
     if 
       @restaurant.save

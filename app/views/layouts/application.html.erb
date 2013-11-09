@@ -7,6 +7,18 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <% if owner_signed_in? %>
+    <h3>You have successfully logged in!</h3>
+    <%= link_to "Sign Out", destroy_owner_session_path, :method => :delete %>
+    | <%= link_to "Edit Profile",edit_owner_path(@owner) %>
+
+  <% else %>
+
+    <h1> Welcome to Reserve.Me!</h1>
+    <%= link_to "Sign In", new_owner_session_path, method: :get %>
+    | <%= link_to "Sign Up", new_owner_registration_path, method: :get %>
+  <% end %>
+
   <p class="notice"><%= notice %></p>
   <p class="alert"><%= alert %></p>
  
