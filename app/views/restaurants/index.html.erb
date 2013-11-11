@@ -1,4 +1,6 @@
+<div class='container bs-docs-container'>
 <h1>Restaurant List</h1>
+<h3>Current Owner ID: <%= current_owner.id %></h3>
 <table class='table table-striped'>
   <tr>
     <th>Image</th>
@@ -6,7 +8,7 @@
     <th>Description</th>
     <th>Address</th>
     <th>Phone Number</th>
-    <th></th>
+    <th>Owner ID</th>
     <th></th>
     <th></th>
   </tr>
@@ -19,13 +21,17 @@
       <td><%= restaurant.description %></td>
       <td><%= restaurant.address %></td>
       <td><%= restaurant.phone_number %></td>
+      <td><%= restaurant.owner_id %></td>
       <td><%= link_to "Show Restaurant", restaurant_path(restaurant), :class =>'btn btn-primary' %></td>
-      <td><%= link_to "Edit Restaurant", edit_restaurant_path(restaurant), :class =>'btn btn-default' %></td>
+      <% if current_owner.id == restaurant.owner_id %>
+        <td><%= link_to "Edit Restaurant", edit_restaurant_path(restaurant), :class =>'btn btn-default' %></td>
       <td><%= link_to 'Delete', restaurant, :class =>'btn btn-danger', method: :delete, data:
        { confirm:"Are you sure?" }  %></td>
+      <% end %>
     <% end %>
   </tr>
 
   <%= link_to "New Restaurant", new_restaurant_path, :class =>'btn btn-success' %>
 
 </table>
+</div>

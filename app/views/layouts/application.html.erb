@@ -8,7 +8,7 @@
 </head>
 <body>
   <% if owner_signed_in? %>
-    <h3>You have successfully logged in!</h3>
+    <h4>You have successfully logged in <%= current_owner.name %>!</h4>
     <%= link_to "Sign Out", destroy_owner_session_path, :method => :delete %>
     | <%= link_to "Edit Profile",edit_owner_path(@owner) %>
 

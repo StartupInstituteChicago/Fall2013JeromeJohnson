@@ -1,5 +1,9 @@
-
-<h4> Owned by: <%= current_owner.name %></h4>
+<div class='container bs-docs-container'>
+  <% if @restaurant.owner == nil %>
+    <h4> Restaurant does not currently have an owner on file </h4>
+  <% else %>
+    <h3> Owned by: <%= @restaurant.owner.name %></h3>
+  <% end %>
 
 <table>
   <tr>
@@ -38,3 +42,4 @@
     {confirm: 'Are you sure?'} %>
 <% end %>
 | <%= link_to "Back to List", restaurants_path %>
+</div>
