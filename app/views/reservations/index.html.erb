@@ -1,0 +1,29 @@
+<h2>All Reservations</h2>
+
+<% if @reservations.nil? %>
+<h4>No reservations currently listed</h4>
+<%= link_to "Back", restaurants_path %>
+
+<% else %>
+
+<table>
+	<tr>
+		<th>Email: </th>
+		<th>Date & Time: </th>
+		<th>Message: </th>
+	</tr>	
+
+	<% @reservations.each do |reservation| %>
+	<tr>
+		<td><%= reservation.email %></td>
+		<td><%= reservation.requested_date_time %></td>
+		<td><%= reservation.message %></td>
+		<td><%= link_to "Delete Reservation",restaurant_reservation_path(reservation.restaurant_id,
+		 reservation.id), method: :delete, data: {confirm: "Are you sure?"} %></td>
+	</tr>
+	<% end %>
+</table><br>
+
+<%= link_to "Back to restaurant", restaurant_path(@restaurant) %>
+
+<% end %>
