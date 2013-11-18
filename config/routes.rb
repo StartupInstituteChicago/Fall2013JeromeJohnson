@@ -1,6 +1,10 @@
 ReserveMe::Application.routes.draw do
+  
+
   devise_for :owners
-  resources :restaurants
+  resources :restaurants do
+    resources :reservations
+  end
   root to: 'restaurants#index'
   resources :owners
 #   Prefix Verb   URI Pattern                     Controller#Action
