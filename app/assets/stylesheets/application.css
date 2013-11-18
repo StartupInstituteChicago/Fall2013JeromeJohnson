@@ -11,3 +11,18 @@
  *= require_self
  *= require_tree .
  */
+
+.form-group {
+	margin-right: -15px;
+	margin-left: -15px;
+}
+
+.reservation-form {
+	margin-right: 15px;
+	margin-left: 15px;
+}
+
+.time-field{
+	margin-right: 40px;
+	margin-left: 40px;
+}
