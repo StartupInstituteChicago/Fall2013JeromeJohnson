@@ -7,4 +7,5 @@ class Restaurant < ActiveRecord::Base
   mount_uploader :avatar, AvatarUploader
 
   belongs_to :owner
+  has_many :reservations
 end

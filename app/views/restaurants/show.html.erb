@@ -35,11 +35,14 @@
 <br>
 <br>
 
-<% if @restaurant.owner == current_owner %>
-  <%= link_to "Edit", edit_restaurant_path %>
 
+<% if @restaurant.owner == current_owner %>
+<h3><%= link_to "Show All Reservations", restaurant_reservations_path(@restaurant)%></h3>
+  <%= link_to "Edit", edit_restaurant_path %>
   | <%= link_to "Destroy", restaurant_path(@restaurants), :method => :delete, data:
     {confirm: 'Are you sure?'} %>
+<% else %>
+<h3><%= link_to "Make a reservation", new_restaurant_reservation_path(@restaurant) %></h3>
 <% end %>
 | <%= link_to "Back to List", restaurants_path %>
 </div>
