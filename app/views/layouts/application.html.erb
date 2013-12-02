@@ -11,6 +11,7 @@
     <h4>You have successfully logged in <%= current_owner.name %>!</h4>
     <%= link_to "Sign Out", destroy_owner_session_path, :method => :delete %>
     | <%= link_to "Edit Profile",edit_owner_registration_path %>
+    | <%= link_to "My Dashboard", owners_dashboard_path %>
 
   <% else %>
 

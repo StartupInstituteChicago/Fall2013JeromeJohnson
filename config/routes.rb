@@ -1,11 +1,22 @@
 ReserveMe::Application.routes.draw do
+
+  get "owners/dashboard"
+  resources :reservations
   
 
   devise_for :owners
+  # resources :restaurants do
+  #   resources :reservations
+
+    authenticated :owner do
+      root to:'owners#dashboard', as:'authenticated_root'
+    end
+  #end
+  root to: 'restaurants#index'
+
   resources :restaurants do
     resources :reservations
   end
-  root to: 'restaurants#index'
   resources :owners
 #   Prefix Verb   URI Pattern                     Controller#Action
 #         new_owner_session GET    /owners/sign_in(.:format)       devise/sessions#new

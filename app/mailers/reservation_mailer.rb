@@ -1,5 +1,5 @@
 class ReservationMailer < ActionMailer::Base
-  default from: "wheey@test.net"
+  default from: "wheezy@test.net"
 
   def reservation_confirmation(user)
     @user = user

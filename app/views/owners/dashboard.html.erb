@@ -1,0 +1,37 @@
+<h2>Welcome to your dashboard</h2>
+
+<div class='container bs-docs-container'>
+<h1>Your Restaurants</h1>
+<h3>Current Owner ID: <%= current_owner.id %></h3>
+<table class='table table-striped table-hover table-responsive'>
+  <tr>
+    <th>Image</th>
+    <th>Name</th>
+    <th>Description</th>
+    <th>Address</th>
+    <th>Phone Number</th>
+    <th></th>
+    <th></th>
+  </tr>
+
+  
+    <% @restaurants.each do |restaurant| %>
+    <tr>
+      <td><%= image_tag restaurant.avatar_url(:thumb), :class => "img-rounded" %></td>
+      <td><%= restaurant.name %></td>
+      <td><%= restaurant.description %></td>
+      <td><%= restaurant.address %></td>
+      <td><%= restaurant.phone_number %></td>
+      <td><%= link_to "Show Restaurant", restaurant_path(restaurant), :class =>'btn btn-primary' %></td>
+        <td><%= link_to "Edit Restaurant", edit_restaurant_path(restaurant), :class =>'btn btn-default' %></td>
+      <td><%= link_to 'Delete', restaurant, :class =>'btn btn-danger', method: :delete, data:
+       { confirm:"Are you sure?" }  %></td>
+    <% end %>
+  </tr>
+
+  <%= link_to "New Restaurant", new_restaurant_path, :class =>'btn btn-success' %>
+
+</table>
+</div>
+
+<h2><%= link_to "See All Restaurants", restaurants_path %></h2>
