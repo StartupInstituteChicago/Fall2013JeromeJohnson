@@ -17,6 +17,8 @@ gem 'dotenv-rails', :groups => [:development, :test]
 #Devise Authentication system
 gem 'devise'
 
+#Factory Girl Rails
+gem 'factory_girl_rails'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'

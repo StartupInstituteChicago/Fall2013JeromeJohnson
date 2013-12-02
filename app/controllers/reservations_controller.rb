@@ -14,6 +14,7 @@ class ReservationsController < ApplicationController
   	@reservation = @restaurant.reservations.new(reservation_params)
 
   	if @reservation.save
+      ReservationMailer.reservation_confirmation(@user).deliver
   		redirect_to restaurant_reservation_path(@reservation.restaurant_id,
   		 @reservation.id)
   	else

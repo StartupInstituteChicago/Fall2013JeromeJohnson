@@ -40,8 +40,10 @@ describe Restaurant do
 
   it "has an owner" do
     subway = Restaurant.new(name:"subway")
-    me = Owner.find(6)
+    me = Owner.new
     me.name = 'jerome'
+    me.email = 'test@testemail.com'
+    me.password = 'abc123456'
     subway.owner = me
     me.save!
     subway.owner.name.should be == 'jerome'
