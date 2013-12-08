@@ -43,7 +43,11 @@
 	font-family: serif;
 }
 
-.bck    
+table{
+	background-image: url("whiteTexturebackground.png")
+}
+
+#body1   
 {
 padding: 0 0 40px 0;
     background-color: #fff;
@@ -53,9 +57,10 @@ padding: 0 0 40px 0;
     background-attachment: fixed;
     background-clip: border-box;
     background-color: transparent;
-    background-image: url("../app/asssets/images/grub-background.png");
+    background-image: url("grub-background.png");
     background-origin: padding-box;
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
+    z-index: -10px;
 }

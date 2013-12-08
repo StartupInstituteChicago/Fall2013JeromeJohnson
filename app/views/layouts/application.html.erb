@@ -6,7 +6,7 @@
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
 </head>
-<body>
+<body id='body1'>
   <% if owner_signed_in? %>
     <h4 class='successful-login'>You have successfully logged in <%= current_owner.name %>!</h4>
     <%= link_to "Sign Out", destroy_owner_session_path, :method => :delete %>
