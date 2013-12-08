@@ -26,3 +26,36 @@
 	margin-right: 40px;
 	margin-left: 40px;
 }
+
+
+/*body {
+	background-image: asset-url('whiteTexturebackground.png');
+	background-attachment: fixed;
+	background-position: 100%,100%;
+	background-repeat: no-repeat;
+}*/
+
+.restaurant-list-header {
+	font-family: serif;
+}
+
+.successful-login {
+	font-family: serif;
+}
+
+.bck    
+{
+padding: 0 0 40px 0;
+    background-color: #fff;
+    margin: 0 auto;
+    padding: 0;
+    line-height: 20px;
+    background-attachment: fixed;
+    background-clip: border-box;
+    background-color: transparent;
+    background-image: url("../app/asssets/images/grub-background.png");
+    background-origin: padding-box;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
