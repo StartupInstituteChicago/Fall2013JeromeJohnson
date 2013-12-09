@@ -47,6 +47,10 @@ table{
 	background-image: url("whiteTexturebackground.png")
 }
 
+#main-table {
+	border-radius: 2.5%;
+}
+
 #body1   
 {
 padding: 0 0 40px 0;
