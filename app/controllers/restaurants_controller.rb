@@ -17,12 +17,14 @@ class RestaurantsController < ApplicationController
   end
 
   def create
-    @restaurant = Restaurant.new(params[:restaurant].permit(:name, :description,
-     :address, :phone_number))
-    @restaurant.owner = current_owner
+    #I notice that you are premitting some of the fields on create, but not the avatar/avatar_url
+    #Is that intended?
+    # @restaurant = Restaurant.new(params[:restaurant].permit(:name, :description,
+    #   :address, :phone_number))
+    # @restaurant.owner = current_owner
 
-    if 
-      @restaurant.save
+    merged_params = params[:restaurant].permit(:name, :description, :address, :phone_number).merge({ owner_id: current_owner.id })
+    if @restaurant = Restaurant.create(merged_params)
       redirect_to @restaurant
     else
       render 'new'

@@ -14,7 +14,7 @@
 ActiveRecord::Schema.define(version: 20131115183000) do
 
   create_table "owners", force: true do |t|
-    t.string   "name"
+    t.string   "name",                   default: "", null: false
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
     t.string   "reset_password_token"
