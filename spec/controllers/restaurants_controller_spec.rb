@@ -1,3 +1,4 @@
+
 require 'spec_helper'
 
 describe RestaurantsController do
@@ -70,7 +71,72 @@ describe RestaurantsController do
         Restaurant.should_receive(:create).with(expected_params)
         post :create, params
       end
+    end
 
+    describe 'POST "update"' do
+      let (:params) do
+        {
+          restaurant: {
+            name: "Test Restaurant",
+            description: "Fancy family cuisine",
+            address: "820 W. Jackson St. Chicago, IL 60607",
+            phone_number: "312.411.3000"
+          }
+        }
+      end
+
+      context "when restaurant is not owned by the current owner" do
+
+        # here we need to createa an actual restaurant b/c update
+        # will need to look it up by id
+        let(:restaurant) { FactoryGirl.create(:restaurant, owner: FactoryGirl.create(:owner, name: "Not me")) }
+
+
+
+        it "redirects with a flash message" do
+          post :update, params.merge(id: restaurant.id)
+          expect(flash[:error]).to_not be_empty
+        end
+
+        it "should not update the restaurant" do
+          # you could do a more datacentric approach to this validation like refresh the restaurant
+          # and ensure it's value didn't change, but this is good enough for me.
+          restaurant.should_not_receive(:update)
+          post :update, params.merge(id: restaurant.id)
+        end
+
+        it "redirects back to the restaurant" do
+          post :update, params.merge(id: restaurant.id)
+          expect(request).to redirect_to(restaurant_path(restaurant))
+        end
+
+      end
+
+      context "when restaurnt is owned by the current owner" do
+        # here we need to create an actual restaurant b/c update
+        # will need to look it up by id.  This owner is defined in let(:owner) up at the top
+        let(:restaurant) { FactoryGirl.create(:restaurant, owner: owner) }
+
+        it "updates the restaurant" do
+          post :update, params.merge(id: restaurant.id)
+          expect(restaurant.reload.name).to eq params[:restaurant][:name]   #notice that I had to reload our restaurant
+        end
+
+        it "redirects to the restaurant" do
+          post :update, params.merge(id: restaurant.id)
+          expect(response).to redirect_to(restaurant_path(restaurant))
+        end
+
+        #note how this renders the template instead of redirecting.  This test is really only meaningful when the
+        # one right above passes too (otherwise, both could just render the edit template and we wouldn't know the
+        # rediret one was failing!)
+        it "if save fails it remains on edit" do
+          Restaurant.any_instance.stub(:update).and_return(false)  #this is a way to see what happens when the update fails
+          post :update, params.merge(id: restaurant.id)
+          expect(response).to render_template(:edit)
+        end
+
+      end
     end
   end
 end
