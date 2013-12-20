@@ -4,6 +4,6 @@ This application will allow users to check out menus, make reservations, and mak
 their favorite restaurants.
 
 
-**quick sign in using email 'testcase@test.com'  and password 'testing123'**
+**quick sign in using email 'testcase@test.com'  and password 'testing123'
 
 (Work in progress, in early development)
