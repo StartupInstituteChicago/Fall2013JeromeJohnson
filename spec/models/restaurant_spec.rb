@@ -1,6 +1,11 @@
 require 'spec_helper'
 
-describe Restaurant do 
+describe Restaurant do
+
+  it "has a valid factory" do
+    expect(FactoryGirl.build(:restaurant)).to be_valid
+  end
+
   it "is not valid without name" do
     subway = Restaurant.new
     subway.should_not be_valid
